@@ -13,14 +13,14 @@ st.write("Create and Interact with the AI Agents!")
 system_prompt=st.text_area("Define your AI Agent: ", height=70, placeholder="Type your system prompt here...")
 
 MODEL_NAMES_GROQ = ["llama-3.3-70b-versatile",]
-MODEL_NAMES_OPENAI = ["gemini-2.5-flash-lite",]
+MODEL_NAMES_GEMINI = ["gemini-2.5-flash-lite",]
 
-provider=st.radio("Select Provider:", ("Groq", "Gemini"))
+provider=st.radio("Select Provider:", ("Groq", "gemini"))
 
 if provider == "Groq":
     selected_model = st.selectbox("Select Groq Model:", MODEL_NAMES_GROQ)
-elif provider == "Gemini":
-    selected_model = st.selectbox("Select OpenAI Model:", MODEL_NAMES_OPENAI)
+elif provider == "gemini":
+    selected_model = st.selectbox("Select Gemini Model:", MODEL_NAMES_GEMINI)
 
 allow_web_search=st.checkbox("Allow Web Search")
 
@@ -30,6 +30,10 @@ API_URL="http://127.0.0.1:9999/chat"
 
 if st.button("Ask Agent!"):
     if user_query.strip():
+        # response="hi this is a demo response"
+        # st.subheader("Agent Response")
+        # st.markdown(f"**Final Response:** {response}")
+
         #Step2: Connect with backend via URL
         import requests
 
@@ -48,7 +52,7 @@ if st.button("Ask Agent!"):
                 st.error(response_data["error"])
             else:
                 st.subheader("Agent Response")
+                #st.markdown(f"**Final Response:** {response}")
                 st.markdown(f"**Final Response:** {response_data}")
 
-
-
+    
