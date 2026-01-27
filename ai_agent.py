@@ -1,7 +1,3 @@
-# if you dont use pipenv uncomment the following:
-# from dotenv import load_dotenv
-# load_dotenv()
-
 #Step1: Setup API Keys for Groq, OpenAI and Tavily
 import os
 from dotenv import load_dotenv
